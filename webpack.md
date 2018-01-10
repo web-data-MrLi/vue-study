@@ -14,7 +14,7 @@ vue的安装
 		cnpm install  以后会出现node-modol
 		type package.json
 		cnpm run dev  启动服务器，然后localhost:8080看一下。
-脚手架工具搭建完成，
+脚手架工具搭建完成，hhgf
 vue页面
    通过webpack来打包，主要是来学习javascript，css，template这个三块，
    
@@ -116,10 +116,25 @@ v-for循环渲染组件，先把组件引进来，在注册这个组件，以标
     还有插槽功能slot，写在子组件上
     
 vue的高级功能
- 过渡和动画， 
+   过渡和动画， 
  css和js过渡。
  
- 
+ 2018年1月10号
+作者：李星亮
+内容：vue的学习，
+css和js 的过渡
+jquery引入的时候放在入口中,index.html中
+vue的高级功能自定义指令
+directives
+自定义指令局部的写在自己的组件中，全局的写在声明和初始化的文件中。
+列子，自定义指令获取光标，
+vue的高级功能c----插件
+安装路由
+cnpm install vue-router --save
+在声明中引入vue-router后，还得用vue.use（）引入，才可以在根目录用
+实体化vue-router，写在跟组件中才可以用，
+css中也有一些属性控制css样式，控制是全局还是局部的。
+   
  
  
  
