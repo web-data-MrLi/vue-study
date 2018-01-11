@@ -134,7 +134,6 @@ cnpm install vue-router --save
 在声明中引入vue-router后，还得用vue.use（）引入，才可以在根目录用
 实体化vue-router，写在跟组件中才可以用，
 css中也有一些属性控制css样式，控制是全局还是局部的。
-   
- 
+load和router、资源是vue经常用的核心
  
  
