@@ -135,5 +135,5 @@ cnpm install vue-router --save
 实体化vue-router，写在跟组件中才可以用，
 css中也有一些属性控制css样式，控制是全局还是局部的。
 load和router、资源是vue经常用的核心
- 
+
  
