@@ -143,6 +143,45 @@ load和router、资源是vue经常用的核心
         当一个vue的实列被创建时，会向vue的响应式系统中加入data，data对象中能找到所有的属性，当这些属性发生变化时候，视图将会更新，及更新为最新的值。
    *阻止现有数据的修改
     Object.freeze(加上要组织的对象)方法；在之后的操作中都改变不了之前 的数据；
-    
-    
- 
+    2018年3月7号
+    vue的生命周期，生命周期钩子的 this 上下文指向调用它的 Vue 实例。
+  *模板语法
+       插值，{{}}双大括号渲染值，可以通过 v-once 指令对差值进行一次性的确定。
+   *v-bind;v-on指令是可以接受一些参数的和属性值的，
+    v-bind的缩写是：，v-on的缩写是@.
+    2018年3月8号
+   *vue的计算属性
+    vue中的一些计算属性可以用用函数来绑定计算；也可以用计算属性侦听一些属性的变化，从而更新dOEM的变化。
+    vue绑定class：1.以对象的形式，有以下几种情况，
+                  <div class="static"
+                        v-bind:class="{ active: isActive, 'text-danger': hasError }">
+                  </div>
+                  data: {
+					  isActive: true,
+					  hasError: false
+					}
+				   渲染的结果是<div class="static active"></div>
+				  在一种方法渲染的结果是以对象的形式:
+				  <div v-bind:class="classObject"></div>
+						data: {
+						  classObject: {
+						    active: true,
+						    'text-danger': false
+						  }
+						}
+				 第三种渲染的方法是以计算属性的方法渲染：
+				  <div v-bind:class="classObject"></div>
+						data: {
+						  isActive: true,
+						  error: null
+						},
+						computed: {
+						  classObject: function () {
+						    return {
+						      active: this.isActive && !this.error,
+						      'text-danger': this.error && this.error.type === 'fatal'
+						    }
+						  }
+						}
+				   以上三种方法渲染是十一对象的形式渲染的，第三种方法最强大。
+   
