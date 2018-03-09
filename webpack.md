@@ -184,4 +184,22 @@ load和router、资源是vue经常用的核心
 						  }
 						}
 				   以上三种方法渲染是十一对象的形式渲染的，第三种方法最强大。
-   
+				   
+		数组的形式绑定class；
+		  第一种方法:列入，数组的方式直接渲染。把数据d类名放到data中
+		  
+		  <div v-bind:class="[activeClass, errorClass]"></div>
+					data: {
+					  activeClass: 'active',
+					  errorClass: 'text-danger'
+					     }
+   *注意：绑定class的也可以用在组件上；
+   *绑定内联样式：
+     直接绑定到一个样式对象通常更好，这会让模板更清晰：
+	<div v-bind:style="styleObject"></div>
+	   data: {
+		    styleObject: {
+		       color: 'red',
+		       fontSize: '13px'
+		      }  
+	     }
