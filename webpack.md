@@ -14,7 +14,7 @@ vue的安装
 		cnpm install  以后会出现node-modol
 		type package.json
 		cnpm run dev  启动服务器，然后localhost:8080看一下。
-脚手架工具搭建完成，hhgf
+脚手架工具搭建完成，
 vue页面
    通过webpack来打包，主要是来学习javascript，css，template这个三块，
    
@@ -202,4 +202,16 @@ load和router、资源是vue经常用的核心
 		       color: 'red',
 		       fontSize: '13px'
 		      }  
-	     }
+   *2018年3月12
+       vue中的条件渲染
+         1.v-if v-else-if v-else,三个条件渲染；
+         2.vue中的key值会记录并且高效的渲染input框中的值
+         3.v-show的用法是展示选项的内容，不支持else和<template>；
+         v-show和v-if的区别：
+                     一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，
+                     则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。
+         v-if和v-for的区别；
+                同时使用时，v-for比v-if有更好的优先级；
+        vue中的列表渲染
+          
+       
