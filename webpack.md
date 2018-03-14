@@ -208,10 +208,40 @@ load和router、资源是vue经常用的核心
          2.vue中的key值会记录并且高效的渲染input框中的值
          3.v-show的用法是展示选项的内容，不支持else和<template>；
          v-show和v-if的区别：
-                     一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，
+                     一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换， 
                      则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。
          v-if和v-for的区别；
                 同时使用时，v-for比v-if有更好的优先级；
         vue中的列表渲染
-          
+          v-for="item of items"中的of可以用in替代，并且渲染的时候还可以用index值
+                 也可以用v-for中的item来迭代和渲染所要渲染的数据，也可以用（item，key）用key值来提供键值。
+        *总结：
+           <div v-for="(value, key, index) in object"></div>v-for中可以传三个值。
+        vue中的数据更新检测
+        
+      vue的事件处理
+        1.v-on监听dom事件，并在触发的时候，执行一些javascript；
+                 事件处理的方法，也可以在v-on上办定一个方法，也可以直接调用；
+        2.事件的修饰符，可以用一些修饰符来阻止事件的发生 ，修饰符是由点开头的在指令之后的，例如;修饰符是由点开头的;
+        3.vue中的修饰符号有，点击事件只触发一次的修饰符，.once;
+        4.v-model与表单事件办定，在v-model和input绑定的同时，可以将数据渲染到dom上；
+   *2018年3月14号
+        组件
+        1.创建vue的实例：
+          new vue（{
+             el："#app",
+          }）
+        2.注册一个全局组件，可以使用这个方法：
+          Vue.component('my-component', {
+			  // 选项
+			})
+        3.注册一个局部组件，注意不是每个组件都有必要写成一个全局的组件，
+          Vue.components('my-component', {
+			  // 选项
+			})
+        4.DOM 模板解析注意事项
+                     使用<ul>、<ol>、<table>、<select>,把组件包裹在标签之中会获取不到，必须使用vue的特殊的属性is和写，列入：
+                     <table>
+						  <tr is="my-row"></tr>
+					 </table>
        
