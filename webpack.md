@@ -239,7 +239,7 @@ load和router、资源是vue经常用的核心
           Vue.components('my-component', {
 			  // 选项
 			})
-        4.DOM 模板解析注意事项
+        4.DOM 模板解析注意事项 
                      使用<ul>、<ol>、<table>、<select>,把组件包裹在标签之中会获取不到，必须使用vue的特殊的属性is和写，列入：
                      <table>
 						  <tr is="my-row"></tr>
@@ -249,4 +249,6 @@ load和router、资源是vue经常用的核心
        7.使用 Prop 传递数据；注意的是，在子组件中需要声明一下prop，然后像data一样把数据传递过去；
        8.动态的prop，可以使用v-bind来动态的绑定父组件的动态，
        9.面量语法 vs 动态语法，注意传递数值的时候，不能的当纯传递一个值，用v-bind的传递的话才是传递的那个值，而前者是传递的是一个字符。
+       10.在根组件上对原声 的事件一个监听，v-on.native;
+       11.
        
