@@ -326,5 +326,20 @@ load和router、资源是vue经常用的核心
                6.updated       组件更新之后执行的方法，执行后页面已经展现出来了；
                9.beforeDestroy  销毁之前的调用；
                10.destroyed    销毁之后调用的方法；
-               
+                 第二十五课     vue的路由和http
+                            总结：在vue中路由就是跳转；a便签点击就有请求，路由的不会这样；
+                 1.  先进入目录，在引入路由，vue-router；
+                 2.在main.js中引入路由；
+                 3.使用Vue.use(VueRouter)和配置一下路由，参数是routes[{路径，跳转的组件}]，还有处理#号的问题。就是mode："history";
+                 4.在实例化中在把路由rotuer写上；
+                 5.在页面上跳转的时候不能用a标签，要用router-link这个双标签<router-link to="/这写的你要跳转的组件的名字">hellowoeld</router-link>
+               http的总结
+                 1.http://jsonplaceholder.typicode.com/地址
+                 2.先引入Vue-resource安装上
+                 3.在引入在使用； created(){
+										this.$http.get("http://jsonplaceholder.typicode.com/users").then((data)=>{
+										 this.chars=data.body;
+											})
+									  }
+                  4.第三条是使用数据连接和渲染的一个小列子；
  
