@@ -342,5 +342,7 @@ load和router、资源是vue经常用的核心
 											})
 									  }
                   4.第三条是使用数据连接和渲染的一个小列子；
+                     第二十六课 vue-x
                  https://ke.qq.com/user/index/index.html#cid=226569&tid=100267446&fr=2&term_id=100267446
- 
+                                 总结： vuex和vue的路由一样，也是vue的插件；
+                 actions  state  Mutation在应用vue的时候要注意这三个点额动向；
