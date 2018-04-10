@@ -25,6 +25,7 @@
 		     </div>
 	 	 </div>
 	 	 <div class="index-right">
+	 	 	<slide-show :slides="slides" :inv="inv"></slide-show>
 	 	 	<div class="index-board-list">
               <div class="index-board-item" v-for="(itema,index) in  boardList" 
 	             :class="[{'line-last' : index % 2 !== 0},'index-board-'+itema.id]">
@@ -41,18 +42,46 @@
 	 </div>
 </template>
 <script>
+import slideShow from '../components/slideShow'
+
 export default {
+	components:{
+	    slideShow
+     },
 	   created(){
 			this.$http.get("http://jsonplaceholder.typicode.com/posts").then((data)=>{
 			/* this.chars=data.body;*/
-			  console.log(data,48)
-			  this.boardList.title=data.body.title
+			 
+			 /* this.boardList.title=data.body.title*/
 			
 				})
 		  },
 	
   data(){
   	return {
+  		inv:2000,
+  	slides: [
+        {
+          src: require('../assets/slideShow/pic1.jpg'),
+          title: 'xxx1',
+          href: 'detail/analysis'
+        },
+        {
+          src: require('../assets/slideShow/pic2.jpg'),
+          title: 'xxx2',
+          href: 'detail/count'
+        },
+        {
+          src: require('../assets/slideShow/pic3.jpg'),
+          title: 'xxx3',
+          href: 'http://xxx.xxx.com'
+        },
+        {
+          src: require('../assets/slideShow/pic4.jpg'),
+          title: 'xxx4',
+          href: 'detail/forecast'
+        }
+      ],
    newsList: [
             {
               title: '数据统计',
