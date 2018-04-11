@@ -2,9 +2,14 @@
 <div class="slide-show" @mouseover="clearInv" @mouseout="runIn">
     <div class="slide-img">
       <a :href="slides[nowIdex].href">
+      	 <transition name="slide-trans">
+          <img v-if="isShow" :src="slides[nowIdex].src">
+        </transition>
+        <transition name="slide-trans-old">
+          <img v-if="!isShow" :src="slides[nowIdex].src">
+        </transition>
       </a>
       
-       <img :src="slides[nowIdex].src">
        
     </div>
     <h2>{{ slides[nowIdex].title }}</h2>
@@ -35,6 +40,7 @@ export default {
  data () {
     return {
        nowIdex:0,
+       isShow:true,
        head:"Heelo ! 丫头"
     }
   },
@@ -58,7 +64,12 @@ export default {
   },
  methods:{
  	go (index){
- 		this.nowIdex=index
+ 	 this.isShow = false
+      setTimeout(() => {
+        this.isShow = true
+       this.nowIdex=index
+      }, 10)
+ 		
  	},
  	runIn(){
  		this.invId=setInterval(()=>{
