@@ -346,4 +346,5 @@ load和router、资源是vue经常用的核心
                  https://ke.qq.com/user/index/index.html#cid=226569&tid=100267446&fr=2&term_id=100267446
                                  总结： vuex和vue的路由一样，也是vue的插件；
                  actions  state  Mutation在应用vue的时候要注意这三个点额动向；
-        
+                     第二十七课   安装json-server，来模拟后台造假数据；
+               npm install json-server --save

@@ -5,8 +5,11 @@
 				<img src="../assets/logo.png" />
 				<div class="head-nav">
 					<ul class="nav-list">
-						<li @click="logClick">登录</li>
+						
+						<li v-if="username==''" @click="logClick">登录</li>
+						<li v-if="username!==''" class="nav-pile">{{username}}</li>
 						<li class="nav-pile">|</li>
+						<li v-if="username!==''" class="nav-pile" @click="quik">退出</li>
 						<li @click="regClick">注册</li>
 						<li class="nav-pile">|</li>
 						<li @click="aboutClick">关于</li>
@@ -14,7 +17,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="app-content">
+		<div class="app-content"> 
 			<keep-alive>
 				<router-view></router-view>
 			</keep-alive>
@@ -29,7 +32,7 @@
 			<log-form @has-log="onSuccessLog">登录</log-form>
 		</my-dialog>
 		<my-dialog :is-show="isShowregDialog" @on-close="closeDialog('isShowregDialog')">
-			
+			<reg-form>注册</reg-form>
 		</my-dialog>
 
 	</div>
@@ -37,13 +40,13 @@
 
 <script>
 	import Dialog from './base/dialog'
-
+    import RegForm from './regForm'
 	import LogForm from './logForm'
 
 	export default {
 		components: {
 			MyDialog: Dialog,
-           
+            RegForm,
             LogForm
             
 		},
@@ -51,7 +54,8 @@
 			return {
 				isShowAboutDialog: false,
 				isShowregDialog: false,
-				isShowlogDialog: false
+				isShowlogDialog: false,
+				username:''
 
 			}
 		},
@@ -68,15 +72,16 @@
 			
 			
 			closeDialog(attr) {
-				console.log(this[attr])
 				this[attr] = false
 				
 			},
 			onSuccessLog (data) {
-		      console.log(data)
-		      this.closeDialog ('isShowLogDialog')
-		      this.username = data.username
-		    }
+		      this.username = data.errmsg
+		      this.isShowlogDialog = false
+		   },
+		   quik(){
+		   	this.username=""
+		   }
 		}
 	}
 </script>

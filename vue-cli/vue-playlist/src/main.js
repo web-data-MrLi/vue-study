@@ -3,8 +3,14 @@
 import Vue from 'vue'
 import layout from './components/layout'
 import IndexPage from './pages/index'
+import OrderListPage from './pages/orderList'
 import VueRouter from 'Vue-router'
 import VueResource from 'vue-resource'
+import DetailPage from './pages/detail'
+import DetailAnaPage from './pages/detail/analysis'
+import DetailCouPage from './pages/detail/count'
+import DetailForPage from './pages/detail/forecast'
+import DetailPubPage  from './pages/detail/publish'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 /*配置路由*/
@@ -12,7 +18,24 @@ const router=new VueRouter({
 	  routes:[
 	  	 {path:"/",
 	  	   component:IndexPage  
-	  	 }
+	  	},
+	  	{path:"/detail",
+	  	   component:DetailPage,
+	  	   children:[
+	  	       {path:"analysis",
+	  	        component:DetailAnaPage  
+	  	       },
+	  	       {path:"count",
+	  	        component:DetailCouPage  
+	  	       },
+	  	       {path:"forecast",
+	  	        component:DetailForPage  
+	  	       },
+	  	       {path:"publish",
+	  	        component:DetailPubPage  
+	  	       }
+	  	   ]
+	  	 },
 	  	 
 	  	
 	 ],

@@ -83,12 +83,20 @@ export default {
       }
       else {
         this.errorText = ''
-        this.$http.get('api/login')
+        
+        this.$http.post('http://47.88.190.192:8088/silu_api/rest/wl/user/login',JSON.stringify({
+                "account": this.usernameModel,
+                "password": this.passwordModel,
+            }),)
+        
         .then((res) => {
+        	  console.log(res)
           this.$emit('has-log', res.data)
         }, (error) => {
           console.log(error)
         })
+        
+        
       }
     }
   }
@@ -97,6 +105,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+	
+	
+	
  .g-form-line{
  	margin-bottom:20px;
  }
