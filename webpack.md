@@ -348,3 +348,5 @@ load和router、资源是vue经常用的核心
                  actions  state  Mutation在应用vue的时候要注意这三个点额动向；
                      第二十七课   安装json-server，来模拟后台造假数据；
                npm install json-server --save
+                     第二十八课  图片的映射；
+                

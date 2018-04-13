@@ -33,7 +33,10 @@
 		             <h2>{{ itema.title}}</h2>
 		             <p>{{ itema.description }}</p>
 		             <div class="index-board-button">
-		              <a href="###">立即购买</a>
+		             <router-link :to='{path:itema.herf}'>
+		             	立即购买
+		             </router-link>
+		             
 		             </div>  
 	              </div>
 	 	 	   </div>
@@ -74,12 +77,12 @@ export default {
         {
           src: require('../assets/slideShow/pic3.jpg'),
           title: 'xxx3',
-          href: 'http://xxx.xxx.com'
+          href: 'detail/forecast'
         },
         {
           src: require('../assets/slideShow/pic4.jpg'),
           title: 'xxx4',
-          href: 'detail/forecast'
+          href: 'detail/publish'
         }
       ],
    newsList: [

@@ -1,21 +1,20 @@
 <template>
     <div class="selection-component">
       <div class="selection-show" @click="toggleDrop">
-        <span>{{ selections[nowIndex].label }}</span>
+        <span>{{ versionLists[nowIndex].label }}</span>
         <div class="arrow"></div>
       </div>
       <div class="selection-list" v-if="isDrop">
         <ul>
-          <li v-for="(item, index) in selections" @click="chooseSelection(index)">{{ item.label }}</li>
+          <li v-for="(item, index) in versionLists" @click="chooseSelection(index)">{{ item.label }}</li>
         </ul>
       </div>
     </div>
 </template>
-
 <script>
 export default {
   props: {
-    selections: {
+    versionLists: {
       type: Array,
       default: [{
         label: 'test',
@@ -36,7 +35,7 @@ export default {
     chooseSelection (index) {
       this.nowIndex = index
       this.isDrop = false
-      this.$emit('on-change', this.selections[this.nowIndex])
+      this.$emit('on-change', this.versionLists[this.nowIndex])
     }
   }
 }
