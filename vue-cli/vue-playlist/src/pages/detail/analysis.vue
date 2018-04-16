@@ -10,7 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
-               
+               <v-choosemuch :choosemuch="choosemuch"></v-choosemuch>
               </div>
           </div>
           <div class="sales-board-line">
@@ -18,7 +18,8 @@
                   产品类型：
               </div>
               <div class="sales-board-line-right">
-                 
+                <v-choose :chooselists="chooselist"></v-choose>
+                	
               </div>
           </div>
           <div class="sales-board-line">
@@ -79,9 +80,13 @@
 
 <script>
 import VSelection from '../../components/base/selection'
+import VChoose from '../../components/base/choose'
+import VChoosemuch from '../../components/base/choosemuch'
 export default{
 	components:{
-		VSelection
+		VSelection,
+		VChoose,
+		VChoosemuch
 	},
 	data (){
 		return {
@@ -98,7 +103,40 @@ export default{
 		          label: '专家版',
 		          value: 2
 		        }
-		      ]
+		      ],
+		    chooselist:[
+		          {
+		            label: '入门版',
+			          value: 0
+			        },
+			        {
+			          label: '中级版',
+			          value: 1
+			        },
+			        {
+			          label: '高级版',
+			          value: 2
+			        }
+		    ],
+		    choosemuch:[
+		    	     {
+		            label: '我们',
+			          value: 0
+			        },
+			        {
+			          label: '你们',
+			          value: 1
+			        },
+			        {
+			          label: '他们',
+			          value: 2
+			        },
+			        {
+			          label: '咱们',
+			          value: 2
+			        },
+		    	
+		    ]
 		}
 	}
 	
