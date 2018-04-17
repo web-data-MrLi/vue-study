@@ -29,15 +29,18 @@ export default {
 		choosemide(index){
 		if(this.nowIndex.indexOf(index)===-1){
 			this.nowIndex.push(index)
-		}else{
+		  }else{
 		 this.nowIndex=_.remove(this.nowIndex,function(idx){
 		 	console.log(index,34)
 				return idx !== index
 				console.log(idx,36)
 			})
-			
+		
 		}
-		this.$emit("on-choose",this.nowIndex)	
+		let nowObjArray = _.map(this.nowIndex, (idx) => {
+          return this.choosemuch[idx]
+        })	
+		this.$emit("on-change", nowObjArray)	
 		},
 	 checkActive (index) {
        return this.nowIndex.indexOf(index) !== -1

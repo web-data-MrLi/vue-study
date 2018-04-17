@@ -27,7 +27,7 @@ export default {
 	methods:{
 		choosemide(index){
 		this.nowIndex=index
-		this.$emit("on-choose",this.chooselists[index])	
+		this.$emit("on-change",this.chooselists[index])	
 		}
 		
 	 }

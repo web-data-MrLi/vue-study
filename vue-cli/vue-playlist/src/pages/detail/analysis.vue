@@ -10,7 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
-               <v-choosemuch :choosemuch="choosemuch"></v-choosemuch>
+               <v-choosemuch :choosemuch="choosemuch" @on-change="on_choose('versions',$event)"></v-choosemuch>
               </div>
           </div>
           <div class="sales-board-line">
@@ -18,7 +18,7 @@
                   产品类型：
               </div>
               <div class="sales-board-line-right">
-                <v-choose :chooselists="chooselist"></v-choose>
+                <v-choose :chooselists="chooselist" @on-change="on_choose('buyType',$event)"></v-choose>
                 	
               </div>
           </div>
@@ -27,7 +27,7 @@
                   有效时间：
               </div>
               <div class="sales-board-line-right">
-                 
+                 <v-contain @on-change="on_choose('buyNum',$event)"></v-contain>
               </div>
           </div>
           <div class="sales-board-line">
@@ -35,7 +35,7 @@
                   产品版本：
               </div>
               <div class="sales-board-line-right">
-                 <v-selection :versionLists="versionList"></v-selection>
+                 <v-selection :versionLists="versionList" @on-change="on_choose('period',$event)"></v-selection>
               </div>
           </div>
           <div class="sales-board-line">
@@ -82,14 +82,20 @@
 import VSelection from '../../components/base/selection'
 import VChoose from '../../components/base/choose'
 import VChoosemuch from '../../components/base/choosemuch'
+import VContain from '../../components/base/contain'
 export default{
 	components:{
 		VSelection,
 		VChoose,
-		VChoosemuch
+		VChoosemuch,
+		VContain
 	},
 	data (){
 		return {
+			versions: [],
+      buyType: {},
+      buyNum: 0,
+      period: {},
 		  versionList: [
 		        {
 		          label: '客户版',
@@ -137,6 +143,14 @@ export default{
 			        },
 		    	
 		    ]
+		}
+	},
+	methods:{
+		
+		on_choose (attr,val){
+			this[attr]=val
+			console.log(this[attr],val)
+			
 		}
 	}
 	
