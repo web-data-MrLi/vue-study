@@ -83,6 +83,7 @@ import VSelection from '../../components/base/selection'
 import VChoose from '../../components/base/choose'
 import VChoosemuch from '../../components/base/choosemuch'
 import VContain from '../../components/base/contain'
+import _ from 'lodash'
 export default{
 	components:{
 		VSelection,
@@ -145,18 +146,42 @@ export default{
 		    ]
 		}
 	},
-	methods:{
-		
-		on_choose (attr,val){
-			this[attr]=val
-			console.log(this[attr],val)
-			
-		}
-	}
 	
-	
+ methods:{
+ 	   /*把返回的数据统一给了初始化的字段*/
+			on_choose (attr,val){
+				this[attr]=val
+				console.log(this[attr],val)
+				this.getPrice()
+			},
+			/*有点难理解，就是把这个数组处理一下*/
+			getPrice(){
+				let buyVersionsArray = _.map(this.versions, (item) => {
+           return item.value
+        })
+				/*把数据统一处理一下*/
+				let raduce={
+					  buyNumber: this.buyNum,
+		        buyType: this.buyType.value,
+		        period: this.period.value,
+		        version: buyVersionsArray.join(',')
+				}
+				/*把数据给了后台*/
+				this.$http.post('http://47.88.190.192:8088/silu_api/rest/wl/user/login', raduce)
+         .then((res) => {
+            
+         })
+			}
+	},
+	/*初始化一下*/
+	 mounted () {
+    this.buyNum = 0
+    this.buyType = this.chooselist[0]
+    this.versions = [this.choosemuch[0]]
+    this.period = this.versionList[0]
+    this.getPrice()
+  }
 }
- 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
