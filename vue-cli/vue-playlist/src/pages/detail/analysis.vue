@@ -49,7 +49,9 @@
           <div class="sales-board-line">
               <div class="sales-board-line-left">&nbsp;</div>
               <div class="sales-board-line-right">
-                 
+                  <div class="button immediately" @click="showPayDialog">
+                                                              立即购买
+                  </div>
               </div>
           </div>
       </div>
@@ -61,7 +63,7 @@
         <ul>
           <li>用户行为指标主要反映用户是如何来到网站的、在网站上停留了多长时间、访问了哪些页面等，主要的统计指标包括：</li>
           <li>用户在网站的停留时间；</li>
-          <li>用户来源网站（也叫“引导网站”）；</li>
+          <li>用户来源网 站（也叫“引导网站”）；</li>
           <li>用户所使用的搜索引擎及其关键词；</li>
           <li>在不同时段的用户访问量情况等。</li>
         </ul>
@@ -75,6 +77,28 @@
           <li>用户所在地理区域分布状况等</li>
         </ul>
       </div>
+      <my-dialog :is-show="isShowPayDialog" @on-close="hidePayDialog">
+      	   <table class="buy-dialog-table">
+		          <tr>
+		            <th>购买数量</th>
+		            <th>产品类型</th>
+		            <th>有效时间</th>
+		            <th>产品版本</th>
+		            <th>总价</th>
+		          </tr>
+		          <tr>
+		            <td>{{ buyNum }}</td>
+		            <td>{{ buyType.label }}</td>
+		            <td>{{ period.label }}</td>
+		            <td>
+		              <span v-for="item in versions">{{ item.label }}</span>
+		            </td>
+		            <td>{{  }}</td>
+		          </tr>
+         </table>
+            <h3 class="buy-dialog-title">请选择银行</h3>
+            <bank-choose :on-change='onChangeBanks'></bank-choose>
+      </my-dialog>
   </div>
 </template>
 
@@ -84,19 +108,25 @@ import VChoose from '../../components/base/choose'
 import VChoosemuch from '../../components/base/choosemuch'
 import VContain from '../../components/base/contain'
 import _ from 'lodash'
+import Dialog from '../../components/base/dialog'
+import BankChoose from '../../components/bankchoose'
 export default{
 	components:{
 		VSelection,
 		VChoose,
 		VChoosemuch,
-		VContain
+		VContain,
+		MyDialog:Dialog,
+		BankChoose
 	},
 	data (){
 		return {
+			isShowPayDialog:false,
 			versions: [],
       buyType: {},
       buyNum: 0,
       period: {},
+      bankId: null,
 		  versionList: [
 		        {
 		          label: '客户版',
@@ -168,14 +198,25 @@ export default{
 				}
 				/*把数据给了后台*/
 				this.$http.post('http://47.88.190.192:8088/silu_api/rest/wl/user/login', raduce)
-         .then((res) => {
+         .then((res) => { 
             
          })
-			}
+			},
+			 showPayDialog () {
+          this.isShowPayDialog = true
+		    },
+		    hidePayDialog () {
+		      this.isShowPayDialog = false
+		    },
+		    onChangeBanks (bankObj) {
+		    	console.log(bankObj,212)
+           this.bankId = bankObj.id
+         }
+		    
 	},
 	/*初始化一下*/
 	 mounted () {
-    this.buyNum = 0
+    this.buyNum = 1
     this.buyType = this.chooselist[0]
     this.versions = [this.choosemuch[0]]
     this.period = this.versionList[0]
@@ -207,5 +248,13 @@ export default{
   background: #4fc08d;
   color: #fff;
   border: 1px solid #4fc08d;
+}
+.immediately{
+	width: 80px;
+	height: 30px;
+	background:#4fc08d;
+	text-align:center;
+	line-height:30px;
+	cursor: pointer;
 }
 </style>
