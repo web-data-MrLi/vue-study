@@ -50,7 +50,7 @@ export default {
 	}
 </script>
 
-<style>
+<style scoped>
 .chooser-component {
   position: relative;
   display: inline-block;

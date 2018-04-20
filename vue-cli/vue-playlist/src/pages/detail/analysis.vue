@@ -98,7 +98,14 @@
          </table>
             <h3 class="buy-dialog-title">请选择银行</h3>
             <bank-choose :on-change='onChangeBanks'></bank-choose>
-      </my-dialog>
+            <div class="button buy-dialog-btn immediately" @click="confirmBuy">
+		          确认购买
+		        </div>
+        </my-dialog>
+         <my-dialog :is-show="isShowErrDialog" @on-close="hideErrDialog">
+                                     支付失败！
+         </my-dialog>
+         <check-order :is-show-check-dialog="isShowCheckOrder" @on-close-check-dialog="hideCheckOrder"></check-order>
   </div>
 </template>
 
@@ -110,6 +117,7 @@ import VContain from '../../components/base/contain'
 import _ from 'lodash'
 import Dialog from '../../components/base/dialog'
 import BankChoose from '../../components/bankchoose'
+import CheckOrder from '../../components/checkOrder'
 export default{
 	components:{
 		VSelection,
@@ -117,11 +125,14 @@ export default{
 		VChoosemuch,
 		VContain,
 		MyDialog:Dialog,
-		BankChoose
+		BankChoose,
+		CheckOrder
 	},
 	data (){
 		return {
 			isShowPayDialog:false,
+			isShowErrDialog:false,
+			isShowCheckOrder:false,
 			versions: [],
       buyType: {},
       buyNum: 0,
@@ -211,8 +222,36 @@ export default{
 		    onChangeBanks (bankObj) {
 		    	console.log(bankObj,212)
            this.bankId = bankObj.id
-         }
-		    
+       },
+        hideErrDialog () {
+		      this.isShowErrDialog = false
+		    },
+		   hideCheckOrder () {
+		      this.isShowCheckOrder = false
+		    },
+		    confirmBuy(){
+		    	 	let buyVersionsArray = _.map(this.versions, (item) => {
+           return item.value
+           })
+				/*把数据统一处理一下*/
+				let raduce={
+					  buyNumber: this.buyNum,
+		        buyType: this.buyType.value,
+		        period: this.period.value,
+		        version: buyVersionsArray.join(','),
+		        banksId:this.banksId
+				    }
+				/*把数据给了后台*/
+				this.$http.post('http://47.88.190.192:8088/silu_api/rest/wl/user/login', raduce)
+         .then((res) => { 
+            this.isShowCheckOrder = true
+            this.isShowPayDialog=false
+           }).catch((error)=>{
+         	  this.isShowCheckOrder = false
+            this.isShowPayDialog=true   
+          })
+		    	
+		     }
 	},
 	/*初始化一下*/
 	 mounted () {

@@ -16,7 +16,7 @@ export default{
 	
 	data(){
 		return {
-			   nowIndex:0,
+			     nowIndex:0,
 				banks: [
 		          {
 		              id: 201,
@@ -63,17 +63,12 @@ export default{
 	},
 	methods:{
 		chooseSelection(index){
-			this.nowIndex=index
-			console.log(this.banks[index],67)
-			this.$emit('on-change',this.banks[index])
+			this.nowIndex = index
+            this.$emit('on-change',this.banks[index])
 		}
 	}
 }
-	
-	
-	
 </script>
-
 <style scoped>
 .chooser-component {
   position: relative;
