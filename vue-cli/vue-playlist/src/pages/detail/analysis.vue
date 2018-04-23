@@ -10,7 +10,8 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
-               <v-choosemuch :choosemuch="choosemuch" @on-change="on_choose('versions',$event)"></v-choosemuch>
+               <v-contain @on-change="on_choose('buyNum',$event)"></v-contain>
+              
               </div>
           </div>
           <div class="sales-board-line">
@@ -18,7 +19,7 @@
                   产品类型：
               </div>
               <div class="sales-board-line-right">
-                <v-choose :chooselists="chooselist" @on-change="on_choose('buyType',$event)"></v-choose>
+                 <v-choosemuch :choosemuch="choosemuch" @on-change="on_choose('versions',$event)"></v-choosemuch>
                 	
               </div>
           </div>
@@ -27,7 +28,7 @@
                   有效时间：
               </div>
               <div class="sales-board-line-right">
-                 <v-contain @on-change="on_choose('buyNum',$event)"></v-contain>
+                 <v-choose :chooselists="chooselist" @on-change="on_choose('buyType',$event)"></v-choose>
               </div>
           </div>
           <div class="sales-board-line">
@@ -43,7 +44,7 @@
                   总价：
               </div>
               <div class="sales-board-line-right">
-                  
+                  500元
               </div>
           </div>
           <div class="sales-board-line">
@@ -154,6 +155,20 @@ export default{
 		      ],
 		    chooselist:[
 		          {
+		            label: '一年',
+			          value: 0
+			        },
+			        {
+			          label: '两年',
+			          value: 1
+			        },
+			        {
+			          label: '三年',
+			          value: 2
+			        }
+		    ],
+		    choosemuch:[
+		    	     {
 		            label: '入门版',
 			          value: 0
 			        },
@@ -165,25 +180,6 @@ export default{
 			          label: '高级版',
 			          value: 2
 			        }
-		    ],
-		    choosemuch:[
-		    	     {
-		            label: '我们',
-			          value: 0
-			        },
-			        {
-			          label: '你们',
-			          value: 1
-			        },
-			        {
-			          label: '他们',
-			          value: 2
-			        },
-			        {
-			          label: '咱们',
-			          value: 2
-			        },
-		    	
 		    ]
 		}
 	},
