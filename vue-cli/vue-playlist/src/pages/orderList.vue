@@ -4,7 +4,7 @@
     <div class="order-list-choose">
       <div class="order-list-option">
         选择产品：
-        <v-selection :selections="products" @on-change="productChange"></v-selection>
+        <v-selection :versionLists="products" @on-change="productChange"></v-selection>
       </div>
 
       <div class="order-list-option">
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="order-list-table">
-      <table>
+      <table> 
         <tr></tr>
         <tr></tr>
       </table>

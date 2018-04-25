@@ -19,6 +19,9 @@ const router=new VueRouter({
 	  	 {path:"/",
 	  	   component:IndexPage  
 	  	},
+	  	 {path: '/orderList',
+	  	   component:OrderListPage
+	  	},
 	  	{path:"/detail",
 	  	   component:DetailPage,
 	  	   redirect: '/detail/analysis',
