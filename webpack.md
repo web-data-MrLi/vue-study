@@ -392,7 +392,7 @@ load和router、资源是vue经常用的核心
                 str.padStart(整个字符串的长度，填充的东西)  往前填充；
                 str.padEnd(整个字符串的长度，填充的东西)  往后填充；
                 
-      ** 函数的变化
+   ** 函数的变化
            1.  默认参数
 	           function show({x=0,y=0}={}){
 	             console.log(x,y)
@@ -420,10 +420,175 @@ load和router、资源是vue经常用的核心
                                     注意：  this的问题，定义函数所在的对象，不在是运行环境所在的对象；
                                                   箭头函数中没有arguments，用`...`代替；
                                                   箭头函数不能当构造函数；
+           5.数组
+              forEach就是用老替代for循环的；
+              let atr=["apple","orging","tomato"]
+               atr.forEach(function(val,index,arr){
+                  console.log(this,"值"，"下标"，"数组")
+                  
+               },123) 
                
-                
-                
+               arr.map() 非常有用，坐数据交互‘映射（也就是一对一吧）’
+                                                               正常情况下，需要配合return，返回一个新的数组；
+                                                               如果没有返回值，相当于forEach
+                                                             注意：要用map，一定要有返回值，列入，重新整理数据；
+               arr.filte()过滤数组里面一些合格的数据，返回新的数组；
                
-       
-         
+               arr.some()类似于查找，如果数组里面某一个条件符合，返回true；
+               
+               arr.every()数组里面所有查找元素都符合条件，才会返回true；
+               
+                                     以上这些都和forEach的用法一直的，一般第二个参数不会用的；用也是改变this的指针问题的；
+               
+               arr.reduce()从左到右，求数组的和、阶乘
+               let arr=[2,3,2]
+               let newArr=arr.reduce((prve,cur,index,arr)=>{
+                 return Math.pow(prve,cur)
+                                  或者
+                 return prve**cur
+               })
+               
+               arr.reduceRight()
+               
+        *ES2017新增的一个运算符；
+                Math.pow(2,3)
+                                 改为
+                2**3
+        *数组身上新增的，arr.keys()数组下标    arr.entries()数组某一项
+             for(let [key,val] of arr.entries()){
+             }
+             
+        *Array.from()
+                                        作用：把类数组（获取一组元素，arguments..）转化成数
+                                        个人观点：具备length这个东西，就靠谱；
+                                                          可以把json对象转成成数组，但是必须要有length这个键值对；
+        *Array.of()把一组值转成数组；
+        *arr.find()找出符合第一个符合条件的数组的成员，如果没有找到，返回undefined；
+            lef arr=[1,2,3,4]
             
+            let A=arr.find((val,index,arr)=>{
+              return val>3;
+            }) 
+             console.log(A)  
+             
+        *arr.findIndex()找的是第一个出现的位置             
+        *arr.fill(填充东西，开始的位置，结束的位置)  
+        *在ES62016增加的
+             arr.includes() 有值的返回的是true； 
+          
+ *6对象简介语法以及对象新增
+	     let name="misite"
+	     let age="18"
+	     let json={
+	        name,
+	        age,
+	        show(){   //不能用箭头函数
+	          return this.name
+	        }
+	      }
+       * OBject.is("","")比较两个值是否相等
+                          解决了NaN的问题，还就（+0，-0）
+	   * Object.assign();
+	             用途：
+	                     用来合并对象那;
+	                     也可以复制数组，对象等等；
+		    let 新的对象=Object.assign({新的json的对象}，插入的目标对象...)  注意：后面的会覆盖前面的； 
+	    *ES2017
+		 	  Object.keys();
+		 	  object.entries();
+		 	  obeject.values();
+		 	   列入：
+		 	    let json={
+		 	         a:1,
+		 	         b:2
+		 	      }
+	        for(let key of Object.keys(json)){
+	                                出来的就是key值
+	           }
+                      对象身上也可以加上...三个点
+            
+       Promise:承诺，许诺
+                                      解决异步  传统的方式回调函数，事件；
+               
+                              语法 ：let promise=new Promise(function(resolve,reject){
+                              resolve 成功回调
+                              reject  失败回调
+                           })
+                     promise.then(res=>{
+                                                             成功                                
+                     }.erro=>{
+                                                            失败
+                     }
+                     ).catch(res=>{
+                                                             也是失败
+                      })
+            Promise.resolv("") 将现有的东西转化成一个promise的对象，resolve的状态，成功的状态
+                new promise(resolv=>{
+                   resolv ("")
+                })
+            
+            Promise.reject("") 将现有的东西转化成一个promise的对象，reject的状态，失败的状态
+ 
+				new promise((resolv,reject)=>{
+				          rreject ("")
+			          })
+            Promise.all([a1,a2,a3]):把promise打包。扔到一个数组里面，打包完还是一个promise的对象；
+                                                     必须确保，所有的promise的对象都是成功的对象；
+            Promise.race([a1,a2,a3])只要有一个成功，就返回；
+  
+ *7模块化
+       es6  统一了客户端和服务端 模块的话的应用；
+                 注意：需要放到服务环境上去
+           a）.如何定义模块化
+                 export导出
+                 
+                 export {
+                  a as  b,
+                  aa as  bb
+                 }
+                 
+           b）.如何使用模块化
+                 import的引入
+                  使用模块
+            <script type="model"></script>
+      import的特点：
+          1）import的可以相对路径，也可以是绝对路径；
+          2）import的模块只会导入一次，无论你引入多少次；
+          3）import "../文件名字"  如果这么用，相当于引入文件；
+          
+          inport {a as b} from 引入文件的路径
+                         有提升的效果，import会自动提升到顶部，首先执行；
+       export 的 特点
+          default 这个导出的不用加{}；其余的都的加{}；
+                         
+                         导出的模块，如果里面定时器改了，外边的模块也会改
+       inport()动态的引入；默认的inport不能写在if等语句中；
+                           返回值是promise对象；
+           inport().then(red=>{
+           
+           })
+	           优点：     按需加载
+			         可以写if
+			         可以写动态的路径
+           
+  
+  
+  
+         
+ **node的基础知识；
+     dir是列出当前文件下的目录；
+     cd 进入相近的如的目录；
+           目录
+      .当前目录
+       cd .. 回到上一级目录  
+       md 文件夹名字  (创建件文件夹)
+       rd 删除文件夹名字  (删除文件夹)
+                 打开一个文件，直接输入文件夹的名字
+         环境变量  
+              当我们在命令行中打开文件或是调用一个程序时，系统会首先在当前目录下找个文件或是程序，
+              如果找打了打开，如果没有找到，会去环境变量中去查找path的路径中去寻找，直到找到为至，否则会报错；
+      
+      
+      所以我们需要把一些经常访问的文件或者程序添加到path的路径中，这样的话，我们可以在任意的位置和访问这个文件和程序；
+      
+      
