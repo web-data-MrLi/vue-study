@@ -567,11 +567,62 @@ load和router、资源是vue经常用的核心
            inport().then(red=>{
            
            })
-	           优点：     按需加载
-			         可以写if
-			         可以写动态的路径
+	           优点：   按需加载
+			      可以写if
+			      可以写动态的路径
+  8类的理解：
+            类是什么：就是class
+     es5之前：
+       function Person(name,age){
+         this.name=name;
+         this.age=age;
+       }
+       pl.prototype.showName=function(){
+         return `名字 ${this.name}`
+       }
+       let pl=new Person("米斯特李","age")
+     es6的写法：
+       clas Person(){
+          constructor(name,age){
+	          this.name=name;
+	         this.age=age;
+          }
+           showe(){
+              return `名字 ${this.name}`
+           }
+       }
+       let pl=new Person("米斯特李","age")
+           一点扩展；
+        let a="meis"
+        clas Person(){
+          constructor(name,age){
+	          this.name=name;
+	         this.age=age;
+          }
+           showe(){
+              return `名字 ${this.name}`
+           }
+           [a](){
            
-  
+           }
+       }
+       let pl=new Person("米斯特李","age") 
+       console.log(pl.a())
+    注意：es6中的class没有提升；
+      fn.bind()矫正this； 
+     现在的继承
+       extends（）
+       clas Person(){
+          constructor(name,age){
+	          this.name=name;
+	         this.age=age;
+          }
+       }
+       class student extends person{}  这样写的话，就继承了父元素身上的属性；
+ *9数据类型；
+         函数
+      generator函数,解决异步，深度
+       
   
   
          
@@ -588,7 +639,6 @@ load和router、资源是vue经常用的核心
               当我们在命令行中打开文件或是调用一个程序时，系统会首先在当前目录下找个文件或是程序，
               如果找打了打开，如果没有找到，会去环境变量中去查找path的路径中去寻找，直到找到为至，否则会报错；
       
-      
       所以我们需要把一些经常访问的文件或者程序添加到path的路径中，这样的话，我们可以在任意的位置和访问这个文件和程序；
-      
-      
+       单线程和多线程 
+     
