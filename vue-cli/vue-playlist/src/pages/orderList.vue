@@ -10,11 +10,11 @@
       <div class="order-list-option">
         开始日期：
       </div>
-
+      <v-date-picker @on-change="getstardate"></v-date-picker>
       <div class="order-list-option">
         结束日期：
       </div>
-
+       <v-date-picker @on-change="getenddate"></v-date-picker>
       <div class="order-list-option">
         关键词：
         <input type="text" v-model.lazy="query" class="order-query">
@@ -22,8 +22,12 @@
     </div>
     <div class="order-list-table">
       <table> 
-        <tr></tr>
-        <tr></tr>
+        <tr>
+        	<th v-for="head in tableHeads" @click="changeOrderType(head)" :class="{active:head.active}">{{head.label}}</th>
+        </tr>
+         <tr v-for="item in list" :key="item.period">
+           <td v-for="head in tableHeads">{{ item[head.key] }}</td>
+        </tr>
       </table>
     </div>
   </div>
@@ -31,13 +35,18 @@
 
 <script>
 import VSelection from '../components/base/selection'
+import VDatePicker from '../components/base/DatePicker'
+import _ from 'lodash'
 export default {
   components: {
-    VSelection
+    VSelection,
+    VDatePicker
   },
   data () {
     return {
       query: '',
+      stardate:'',
+      enddate:'',
       productId: 0,
       products: [
         {
@@ -56,13 +65,115 @@ export default {
           label: '广告发布',
           value: 3
         }
-      ]
+      ], 
+      tableHeads: [
+        {
+          label: '订单号',
+          key: 'orderId'
+        },
+        {
+          label: '购买产品',
+          key: 'product'
+        },
+        {
+          label: '版本类型',
+          key: 'version'
+        },
+        {
+          label: '有效时间',
+          key: 'period'
+        },
+        {
+          label: '购买日期',
+          key: 'date'
+        },
+        {
+          label: '数量',
+          key: 'buyNum'
+        },
+        {
+          label: '总价',
+          key: 'amount'
+        }
+      ],
+      list: [
+      {
+        "orderId": "ddj123",
+        "product": "数据统计",
+        "version": "高级版",
+        "period": "1年",
+        "buyNum": 2,
+        "date": "2016-10-10",
+        "amount": "500元"
+      },
+      {
+        "orderId": "yuj583",
+        "product": "流量分析",
+        "version": "户外版",
+        "period": "3个月",
+        "buyNum": 1,
+        "date": "2016-5-2",
+        "amount": "2200元"
+      },
+      {
+        "orderId": "pmd201",
+        "product": "广告发布",
+        "version": "商铺版",
+        "period": "3年",
+        "buyNum": 12,
+        "date": "2016-8-3",
+        "amount": "7890元"
+      }
+    ], 
+      currentOrder: 'asc',
+      tableData: []
     }
   },
   
   methods: {
     productChange (obj) {
       this.productId = obj.value
+      
+    },
+    getstardate(datea){
+    	console.log(datea)
+    	this.stardate=datea
+    	
+    },
+    getenddate(datae){
+    	console.log(datae)
+    	this.enddate=datae
+    	
+    },
+    /*  从后台获取信息,然后渲染到页面上,
+*/   /* getList () {
+      let reqParams = {
+        query: this.query,
+        productId: this.productId,
+        startDate: this.stardate,
+        endDate: this.enddate
+      }
+      this.$http.post('/api/getOrderList', reqParams)
+      .then((res) => {
+        this.tableData = res.data.list
+      }, (err) => {
+
+      })
+    }, */
+    changeOrderType (head) {
+      this.tableHeads.map((item) => {
+        item.active = false
+        console.log(item)
+        return item
+      })
+      head.active = true
+      if (this.currentOrder === 'asc') {
+        this.currentOrder = 'desc'
+      }
+      else if (this.currentOrder === 'desc') {
+        this.currentOrder = 'asc'
+      }
+      this.tableData = _.orderBy(this.tableData, head.key, this.currentOrder)
     }
   }
 }
