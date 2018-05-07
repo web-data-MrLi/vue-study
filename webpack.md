@@ -744,6 +744,16 @@ webpack
 	第三方插件
  
 现在状态；
-  es6    的语法看了一遍；还有一部分
+  es6    的语法看了一遍；还有一部分   看完了；
   nodejs 看了一点
   webpack看了一部分
+  
+  jquery  看了一部分； attr 获取属性和改变属性的值；
+  
+  filter not has eq next prev  attr这几个方法应用；
+  
+    *项目app去哪了开始
+  
+      el 是接管标签中的内容；或是页面的dom   ;vue不支持ie8一下版本；
+      
+   
