@@ -743,6 +743,8 @@ webpack
 	
 	第三方插件
  
+ https://www.nowcoder.com/courses  牛客网
+ 
 现在状态；
   es6    的语法看了一遍；还有一部分   看完了；
   nodejs 看了一点
@@ -752,8 +754,22 @@ webpack
   
   filter not has eq next prev  attr这几个方法应用；
   
+  addClass removeClass width() innerWidth()宽度加padding  outerWidth()宽度加padding加border outerWidth(true)宽度+padidng+border+margin
+  
+  insertBefore()和before()的方法都是把某个节点插入到另一个节点之前；
+  appendTo 和append向某个指定的标签中插入内容；
+  remove（）移除某个节点；
+  on（）是里面可以写json的形式写多种方法；还可以写自定义事件和off（）结束某个事件 
+  once（）事件只执行一次；
+    在jquery中，如果写了return false话，相当阻止默认事件和冒泡事件；
+    获取鼠标的坐标；ev.pagex;
+    原声js的数组的一些属性；
+    
+    substr（截取的位置，截取的位置）
     *项目app去哪了开始
   
-      el 是接管标签中的内容；或是页面的dom   ;vue不支持ie8一下版本；
+      1.el 是接管标签中的内容；或是页面的dom   ;vue不支持ie8一下版本；
+        vue中都是对数据的操作；也就是虚拟的dom的操作；因为dom会被一个属性值接受；就是el；
+      2.应该听2-4
       
    
