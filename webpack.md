@@ -762,14 +762,42 @@ webpack
   on（）是里面可以写json的形式写多种方法；还可以写自定义事件和off（）结束某个事件 
   once（）事件只执行一次；
     在jquery中，如果写了return false话，相当阻止默认事件和冒泡事件；
+  offset().left的用法；获取元素到屏幕左边的距离；注意：如果是自身的到屏幕左边的距离的话，自身的padding和border不算加，只有margin加；
+                     如果是有一个子元素到屏幕左边的距离的话，自身的padding和border不算，margin会加进去，单是父级元素的padding和border会加进去
+                     
+  position().left的用法；到屏幕左边的距离；如果自身没有定位；这个值就是0；如果有父级元素的话，就是就是父级元素的padding+border+margin;
+                      如果自身定位的话，就可以自身的值；（父和子一样的）
+  parent() 获取父元素；
+  offsetParent()获取有定位的父元素；
+  val（）获取有value的值
+  size（）获取长度 
+  each（function(下标，value值){}）循环，可以
+  hover(function(){},function(){})
+  show() hide() 显示隐藏；
+  fadeIn fadeOut  淡入淡出；
+     稍微高级的用法；
+  get（）可以把jquery转化成原生；
+  text()获取文本，html()获取获取标签加内容；
+  jquery 中可以获取隐藏元素的属性值outsetWidth()
+  
+  remove() 和detach() 两个删除节点；前者删除后，是删除后，事件也跟着删除了。恢复不了的，后者删除的话，恢复后事件还可以用；比如就是删除节点后，然后在添加到
+                            页面上；
+  $(function(){})这个的意思是等页面上的dom加载完后，在加载js；等价于$(document).ready(function(){})
+  window.onload=function(){}这个的意思是等页面的所有的加载完才执行js；
+  parents();获取当前元素的所有祖先节点，参数可以是帅选功能；
+  closest();获得最近的指定的祖先节点（包括自身的节点本身）必须写筛选的参数，只能找到一个；
+  siblings()获取兄弟元素；
+  jquery看到高级3  8：31
     获取鼠标的坐标；ev.pagex;
     原声js的数组的一些属性；
     
     substr（截取的位置，截取的位置）
+    
     *项目app去哪了开始
-  
       1.el 是接管标签中的内容；或是页面的dom   ;vue不支持ie8一下版本；
         vue中都是对数据的操作；也就是虚拟的dom的操作；因为dom会被一个属性值接受；就是el；
       2.应该听2-4
+        MVVM框架，就是对model的操作；
+        MVP框架对dom的操作；
       
    
