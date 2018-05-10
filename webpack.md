@@ -787,7 +787,36 @@ webpack
   parents();获取当前元素的所有祖先节点，参数可以是帅选功能；
   closest();获得最近的指定的祖先节点（包括自身的节点本身）必须写筛选的参数，只能找到一个；
   siblings()获取兄弟元素；
-  jquery看到高级3  8：31
+  clone()复制节点，里面可以接受一个参数；可以复制之前的操作行为clone（true）
+  wrap（）给外层包装一层div
+  wrapAll给外层包装一个；
+  upwrap（）删除父级，不包括body元素的；
+  slice（）截取时候的选择； ，
+  animate（{属性值的}，时间，运动方式，回调函数）
+  stop()方法，只会阻止当前方式运动；阻止所有运动的话，stop（true，true）第一参数是第一个动画运动完，阻止后面的运动，第二参数true的。瞬间完成第一个动画
+        阻止后续的动画；
+   finish（）立即停止所有的指定目标点；
+   delay（）延迟的方法；
+   delegate()事件委派的方法；利用的冒泡事件；
+   undelegate阻止事件委托;
+   trigger()主动触发事件；
+   ev.date  ev.target
+   
+   $("div").on("click",{name:li},function(){
+     console.log(ev.data.name)
+     或者
+     console.log(ev.target)
+   })
+   工具方法；
+   $.type()判断基本类型；
+   $.trim()去除空格；
+   let arr=["1","2"]
+   $.inArray("b",arr) b在arr数组中出现的位置；没有的话返回的是-1；
+   $.proxy(函数名称，this要指向的对象)（）这个括号是要调用这个函数；改变this指向；
+   let miaov=$.noConflict()防止冲突；
+   $.makeArray()可以把类数组转化成数组；
+   $.extend扩展工具下的一些方法；
+   $.fn.extend()扩张jq对象下的形式
     获取鼠标的坐标；ev.pagex;
     原声js的数组的一些属性；
     
@@ -796,8 +825,10 @@ webpack
     *项目app去哪了开始
       1.el 是接管标签中的内容；或是页面的dom   ;vue不支持ie8一下版本；
         vue中都是对数据的操作；也就是虚拟的dom的操作；因为dom会被一个属性值接受；就是el；
-      2.应该听2-4
+      2.应该听2-4   
         MVVM框架，就是对model的操作；
         MVP框架对dom的操作；
-      
+                  组件的话，局部组件和全局组件；全局组件的话是，子组件还接受数据，局部组件呢，要把组件注册到根组件中；
+        v-bind：const=""可以接受父组件向子组件传值；
+        
    
