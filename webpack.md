@@ -867,7 +867,7 @@ webpack
                v-once 这个属性可以提高静态页面的一些性能；
         11.vue 中的css动画；
              trastions标签包过起来，可以起一个name的名字，以便在css中代替v，这个时候的css有进入，有离开的，这几钟情况的；
-                       
+        12.vue-cli脚手架中webpack配置基础文件详解        地址：https://segmentfault.com/a/1190000014804826             
                               
         
                 
