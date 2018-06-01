@@ -874,6 +874,7 @@ webpack
                               
         原声的js中的一些东西；
         splice(添加或者是删除数组的下标，删除的个数，要添加的一些内容可以选择)
+        $(".time_resertions_1 option:selected")选择要选中的那个option值
          Remarks(备注)       
        
    
