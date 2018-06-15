@@ -871,16 +871,14 @@ webpack
         13.在vue中，点击出现，点击消失的时候，可以用this.a=!this.a取反；    css动画有进入和离开两种情况，加动画的时候就可以加到这两种情况中； 
         
         14.使用animate.css动画库；注意：使用自定义的类名，还有就是后面必须写animate这个然后在animate后面写上想跟的动画；
-        15.
-        
-        
-        
-        
-              
-                              
+        15.5-3和5-2需要重新看一遍
+        16.vue中的js和velocity.js的结合
+               js的一些钩子，配合一些插件或者是自身写一些动画的效果
+                          注意：@befor-enter="函数的名字"
+               @enter=""
+               @after-enter=""
+        17.接下来看5-5   
         原声的js中的一些东西；
-        
-        
         splice(添加或者是删除数组的下标，删除的个数，要添加的一些内容可以选择)
         $(".time_resertions_1 option:selected")选择要选中的那个option值
          Remarks(备注)       
