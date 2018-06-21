@@ -74,7 +74,7 @@ vue的模板指令
  在vue中$开头的使用数据和使用方法,在vue中的实列方法，就是$开头的。
  var my=new Vue({
           el:"#body",
-          template:"<div>{{aa}}<div>",
+          tenmplate:"<div>{{aa}}<div>",
           data{
             aa:'banner'
           },
@@ -817,6 +817,21 @@ webpack
    $.makeArray()可以把类数组转化成数组；
    $.extend扩展工具下的一些方法；
    $.fn.extend()扩张jq对象下的形式
+   牛客上的一些小列子：
+   function foo(){
+		var i=0;
+		return function(){
+		document.write(i++)
+		//输出的结果是010
+		}
+	}
+	var f1=foo();
+	var f2=foo();
+	f1();
+	f1();
+    f2();
+   
+   
     获取鼠标的坐标；ev.pagex;
     原声js的数组的一些属性；
     
