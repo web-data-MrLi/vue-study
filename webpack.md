@@ -890,9 +890,12 @@ webpack
         16.vue中的js和velocity.js的结合
                js的一些钩子，配合一些插件或者是自身写一些动画的效果
                           注意：@befor-enter="函数的名字"
-               @enter=""
+               @enter="" 
                @after-enter=""
-        17.接下来看5-5   
+        17.vue中多个元素或组件的过渡；
+                                    多个div之间用动画切换，还有就是多个组件之间用动画切换
+               5-6看
+             
         原声的js中的一些东西；
         splice(添加或者是删除数组的下标，删除的个数，要添加的一些内容可以选择)
         $(".time_resertions_1 option:selected")选择要选中的那个option值
