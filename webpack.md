@@ -892,9 +892,13 @@ webpack
                           注意：@befor-enter="函数的名字"
                @enter="" 
                @after-enter=""
-        17.vue中多个元素或组件的过渡；
+        17. vue中多个元素或组件的过渡；
                                     多个div之间用动画切换，还有就是多个组件之间用动画切换
-               5-6看
+            vue中的列表过渡<trastions-group></trastions-group>
+                                      这标签中不写name，直接是v-enter；加上这标签后，相当于给每个标签加了一个这个trastions动画的标签；
+            vue中动画的封装；一般是用js封装的；
+               
+              
              
         原声的js中的一些东西；
         splice(添加或者是删除数组的下标，删除的个数，要添加的一些内容可以选择)
