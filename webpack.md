@@ -897,7 +897,8 @@ webpack
             vue中的列表过渡<trastions-group></trastions-group>
                                       这标签中不写name，直接是v-enter；加上这标签后，相当于给每个标签加了一个这个trastions动画的标签；
             vue中动画的封装；一般是用js封装的；
-               
+         18项目的预热
+            看第六章
               
              
         原声的js中的一些东西；
