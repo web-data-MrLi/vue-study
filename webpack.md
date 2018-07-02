@@ -899,8 +899,10 @@ webpack
             vue中动画的封装；一般是用js封装的；
          18项目的预热
            get clone  克隆项目；
-            vue中方法的调用{{q()}}
+           vue中方法的调用{{q()}}
                     属性的绑定，事件的绑定，数据的绑定
+           computed计算属性，只有在耗时，搜索的时候才会大量使用，在methods中的方法，只要调用一个，都会，执行一遍；
+           v-if和v-show的区别，v-show占位；diaplay:none的区别；
             看第六章
               
              
